@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.pyg</groupId>
+    <artifactId>pyg-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>pyg-common</module>
+        <module>pyg-pojo</module>
+        <module>pyg-sys-consumer</module>
+    </modules>
+
+
+
+    <!-- 为pom定义一些常量，在pom中的其它地方可以直接引用
+            使用方式 如下 ：${file.encoding} -->
+    <properties>
+        <file.encoding>UTF-8</file.encoding>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
+        <spring-boot.version>2.1.0.RELEASE</spring-boot.version>
+        <lombok.version>1.18.6</lombok.version>
+        <!-- 设置我们项目的一些版本属性，管理版本号 -->
+        <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <dubbo.version>2.6.2</dubbo.version>
+        <zkclient.version>0.10</zkclient.version>
+
+        <spring-boot-starter-dubbo.version>1.0.0</spring-boot-starter-dubbo.version>-->
+    </properties>
+
+    <!--parent是springboot最最核心的依赖，所有的配置都在里面，并且是springboot项目必须引入的-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.0.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+
+
+    <!-- 定义本项目的依赖关系 -->
+    <dependencies>
+
+        <!-- 每个dependency都对应这一个jar包 -->
+        <!--<dependency>-->
+
+        <!--一般情况下，maven是通过groupId、artifactId、version这三个元素值（俗称坐标）来检索该构件， 然后引入你的工程。
+        如果别人想引用你现在开发的这个项目（前提是已开发完毕并发布到了远程仓库），-->
+        <!--就需要在他的pom文件中新建一个dependency节点，将本项目的groupId、artifactId、version写入， maven就会把你上传的jar包下载到他的本地 -->
+        <!-- <groupId>com.winner.trade</groupId>
+         <artifactId>trade-test</artifactId>
+         <version>1.0.0-SNAPSHOT</version>-->
+
+        <!-- maven认为，程序对外部的依赖会随着程序的所处阶段和应用场景而变化，所以maven中的依赖关系有作用域(scope)的限制。 -->
+        <!--scope包含如下的取值：compile（编译范围）、provided（已提供范围）、runtime（运行时范围）、test（测试范围）、system（系统范围） -->
+        <!-- <scope>test</scope>-->
+
+        <!-- 设置指依赖是否可选，默认为false,即子项目默认都继承:为true,则子项目必需显示的引入，与dependencyManagement里定义的依赖类似  -->
+        <!--<optional>false</optional>-->
+
+        <!-- 屏蔽依赖关系。 比如项目中使用的libA依赖某个库的1.0版，libB依赖某个库的2.0版，现在想统一使用2.0版，就应该屏蔽掉对1.0版的依赖 -->
+        <!--<exclusions>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+            </exclusion>
+        </exclusions>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <!--构建配置-->
+    <build>
+        <!--使用的插件列表-->
+        <plugins>
+
+            <!--能够将Spring Boot应用打包为可执行的jar或war文件，然后以通常的方式运行Spring Boot应用。-->
+            <!--Spring Boot Maven plugin的最新版本为2017.6.8发布的1.5.4.RELEASE，要求Java 8, Maven 3.2及以后。-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>exec</classifier>
+                            <!--解决springboot打包需要main class问题-->
+                            <mainClass>package.Main</mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+
+
+</project>
