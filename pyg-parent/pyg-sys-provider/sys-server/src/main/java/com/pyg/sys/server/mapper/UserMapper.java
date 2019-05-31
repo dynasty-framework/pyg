@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserMapper {
 
-    User Login(User user);
+    User login(User user);
 
     User insert(User user);
 

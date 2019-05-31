@@ -40,7 +40,7 @@ public class DataSourceConfig {
         druidDataSource.setInitialSize(jdbcConfig.getInitialSize());
         druidDataSource.setMinIdle(jdbcConfig.getMinIdle());
         druidDataSource.setMaxActive(jdbcConfig.getMaxActive());
-        druidDataSource.setDbType(jdbcConfig.getDbType());
+        //druidDataSource.setDbType(jdbcConfig.getDbType());
         druidDataSource.setTimeBetweenEvictionRunsMillis(jdbcConfig.getTimeBetweenEvictionRunsMillis());
         druidDataSource.setMinEvictableIdleTimeMillis(jdbcConfig.getMinEvictableIdleTimeMillis());
         druidDataSource.setValidationQuery(jdbcConfig.getValidationQuery());
