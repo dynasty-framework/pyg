@@ -23,7 +23,6 @@ import java.sql.SQLException;
  * @date: 2019-05-27 22:57
  */
 @Configuration
-@Slf4j
 @MapperScan(basePackages="com.pyg.sys.provider.mapper", sqlSessionTemplateRef="sqlSessionTemplate")
 public class DataSourceConfig {
 
@@ -33,7 +32,6 @@ public class DataSourceConfig {
 	@Bean(name="datasource")
     @Primary //在同样的DataSource中，首先使用被标注的DataSource
     public DataSource dataSource() {
-	    log.debug("=======================初始化数据库连接池开始=============================");
         DruidDataSource druidDataSource = new DruidDataSource();
         druidDataSource.setDriverClassName(jdbcConfig.getDriverClass());
         druidDataSource.setUrl(jdbcConfig.getUrl());
@@ -52,10 +50,8 @@ public class DataSourceConfig {
         druidDataSource.setMaxPoolPreparedStatementPerConnectionSize(20);
         try {
             druidDataSource.setFilters("stat,log4j,wall");
-            log.debug("=======================初始化数据库连接池结束=============================");
         } catch (SQLException e) {
             e.printStackTrace();
-            log.error(e.getMessage());
         }
         return druidDataSource;
     }
