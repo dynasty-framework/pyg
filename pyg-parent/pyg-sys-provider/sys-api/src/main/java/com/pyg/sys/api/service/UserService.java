@@ -1,4 +1,4 @@
-package com.pyg.sys.provider.service;
+package com.pyg.sys.api.service;
 
 import com.pyg.pojo.User;
 

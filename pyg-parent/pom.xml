@@ -10,7 +10,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>pyg-common</module>
         <module>pyg-pojo</module>
         <module>pyg-sys-consumer</module>
         <module>pyg-sys-provider</module>
@@ -111,7 +110,7 @@
 
             <!--能够将Spring Boot应用打包为可执行的jar或war文件，然后以通常的方式运行Spring Boot应用。-->
             <!--Spring Boot Maven plugin的最新版本为2017.6.8发布的1.5.4.RELEASE，要求Java 8, Maven 3.2及以后。-->
-            <plugin>
+           <!-- <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <executions>
@@ -121,15 +120,14 @@
                         </goals>
                         <configuration>
                             <classifier>exec</classifier>
-                            <!--解决springboot打包需要main class问题-->
+                            &lt;!&ndash;解决springboot打包需要main class问题&ndash;&gt;
                             <mainClass>package.Main</mainClass>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
 
         </plugins>
-
     </build>
 
 

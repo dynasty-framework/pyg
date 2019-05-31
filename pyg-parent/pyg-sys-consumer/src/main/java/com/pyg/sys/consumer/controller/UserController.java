@@ -2,7 +2,7 @@ package com.pyg.sys.consumer.controller;
 
 import com.pyg.pojo.User;
 import com.pyg.pojo.result.ReturnInfo;
-import com.pyg.sys.provider.service.UserService;
+import com.pyg.sys.api.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import com.alibaba.dubbo.config.annotation.Reference;
@@ -28,11 +28,10 @@ public class UserController {
         try {
             log.info("======== 用户登录 ========");
             User login = userService.Login(user);
-            if(login == null) {
-                re = ReturnInfo.failure();
-            }
+            re.setData(login);
         }catch (Exception e) {
             log.error(e.getMessage());
+            re = ReturnInfo.failure();
         }
         return re;
     }

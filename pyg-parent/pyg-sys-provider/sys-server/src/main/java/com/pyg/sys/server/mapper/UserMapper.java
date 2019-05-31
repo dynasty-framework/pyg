@@ -1,4 +1,4 @@
-package com.pyg.sys.provider.mapper;
+package com.pyg.sys.server.mapper;
 
 import com.pyg.pojo.User;
 import org.apache.ibatis.annotations.Mapper;

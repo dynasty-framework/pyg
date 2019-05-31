@@ -1,4 +1,4 @@
-package com.pyg.sys.provider.config;
+package com.pyg.sys.server.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import lombok.extern.slf4j.Slf4j;

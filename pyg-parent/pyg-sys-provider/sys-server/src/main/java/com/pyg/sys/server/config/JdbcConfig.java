@@ -1,4 +1,4 @@
-package com.pyg.sys.provider.config;
+package com.pyg.sys.server.config;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +13,11 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 public class JdbcConfig {
+
+    /*
+     * Could not resolve placeholder 'spring.datasource.driver-class-name' in value "${spring.datasource.driver-class-name}"
+     * 项目在配置更改后要对maven进行clean，install的操作，清除以重新编译项目
+     **/
 
     /**
      * 驱动名称

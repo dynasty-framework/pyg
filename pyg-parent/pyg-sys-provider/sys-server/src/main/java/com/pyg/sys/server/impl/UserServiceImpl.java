@@ -1,16 +1,17 @@
-package com.pyg.sys.provider.service.impl;
+package com.pyg.sys.server.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.pyg.pojo.User;
-import com.pyg.sys.provider.mapper.UserMapper;
-import com.pyg.sys.provider.service.UserService;
+import com.pyg.sys.api.service.UserService;
+import com.pyg.sys.server.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * @description:
- * @author: HP
- * @date: 2019-05-30 20:03
- */
+ * @ClassName: UserServiceImpl
+ * @description: TODO
+ * @author: zhaotao
+ * @create: 2019-05-31 12:31
+ **/
 @Service
 public class UserServiceImpl implements UserService {
 
