@@ -20,6 +20,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User Login(User user) {
+        //int i = 2/0;
         System.err.println("== 访问数据库 ==");
         User login = userMapper.login(user);
         return login;

@@ -13,6 +13,8 @@
         <module>pyg-pojo</module>
         <module>pyg-sys-consumer</module>
         <module>pyg-sys-provider</module>
+        <module>pyg-turbine</module>
+        <module>pyg-hystrix</module>
     </modules>
 
 
