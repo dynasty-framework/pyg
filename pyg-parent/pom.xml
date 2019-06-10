@@ -15,6 +15,7 @@
         <module>pyg-sys-provider</module>
         <module>pyg-turbine</module>
         <module>pyg-hystrix</module>
+        <module>pyg-common</module>
     </modules>
 
 
