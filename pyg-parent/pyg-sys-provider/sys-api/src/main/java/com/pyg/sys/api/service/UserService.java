@@ -1,6 +1,7 @@
 package com.pyg.sys.api.service;
 
 import com.pyg.pojo.User;
+import com.pyg.pojo.result.ReturnInfo;
 
 /**
  * @description: 用户服务层接口
@@ -9,5 +10,5 @@ import com.pyg.pojo.User;
  */
 public interface UserService {
 
-    User Login(User user);
+    ReturnInfo Login(User user);
 }

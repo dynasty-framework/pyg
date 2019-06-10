@@ -28,10 +28,7 @@ public class UserController {
     public ReturnInfo login(@RequestBody User user) {
         ReturnInfo re = ReturnInfo.success();
         try {
-            System.err.println("== 接收请求 ==");
-            log.info("======== 用户登录 ========");
-            User login = userService.Login(user);
-            re.setData(login);
+            return userService.Login(user);
         }catch (Exception e) {
             e.printStackTrace();
             log.error(e.getMessage());
