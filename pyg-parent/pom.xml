@@ -16,6 +16,8 @@
         <module>pyg-turbine</module>
         <module>pyg-hystrix</module>
         <module>pyg-common</module>
+        <module>pyg-mq-consumer</module>
+        <module>pyg-mq-provider</module>
     </modules>
 
 

@@ -7,7 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
  * @author: HP
  * @date: 2019-06-10 21:03
  */
-public class Bcrypt {
+public class MyBcrypt {
 
         public static void main(String[] args) {
                 String encrypt = encrypt("123456");
