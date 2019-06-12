@@ -11,6 +11,7 @@ import com.pyg.sys.api.service.UserService;
 import com.pyg.sys.server.mapper.UserMapper;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.jms.Destination;
 
@@ -22,6 +23,10 @@ import javax.jms.Destination;
  **/
 @Service
 public class UserServiceImpl implements UserService {
+
+    //通过配置来获取变量值，控制程序
+    @Value("${use.ActiveMQ.login}")
+    private boolean useLoginMQ;
 
     @Autowired
     private UserMapper userMapper;
@@ -43,9 +48,10 @@ public class UserServiceImpl implements UserService {
             re.setCode(ResultEnum.USER_PWD_ERROR.getIndex());
             return re;
         }*/
-        Destination destination = new ActiveMQQueue("login.queue");
-        MQProviderService.sendMessage(destination, user.getUsername() + "登录成功！！");
-
+        if(useLoginMQ) {
+            Destination destination = new ActiveMQQueue("login.queue");
+            MQProviderService.sendMessage(destination, user.getUsername() + "登录成功！！");
+        }
         re.setData(user);
         return re;
     }
