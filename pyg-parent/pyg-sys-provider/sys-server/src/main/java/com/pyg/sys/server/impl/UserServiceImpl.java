@@ -38,11 +38,11 @@ public class UserServiceImpl implements UserService {
             re.setCode(ResultEnum.USER_NAME_ERROR.getIndex());
             return re;
         }
-        if(!MyBcrypt.verifyPwd(loginUser.getPassword(), user.getPassword())) {
+        /*if(!MyBcrypt.verifyPwd(loginUser.getPassword(), user.getPassword())) {
             re.setMsg(ResultEnum.USER_PWD_ERROR.getMessage());
             re.setCode(ResultEnum.USER_PWD_ERROR.getIndex());
             return re;
-        }
+        }*/
         Destination destination = new ActiveMQQueue("login.queue");
         MQProviderService.sendMessage(destination, user.getUsername() + "登录成功！！");
 

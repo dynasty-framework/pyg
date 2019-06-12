@@ -23,13 +23,14 @@ public class MQProviderServiceImpl implements MQProviderService {
 
     @Override
     public void sendMessage(Destination destination, final String message) {
+        System.out.println("发送消息");
         jmsTemplate.convertAndSend(destination, message);
     }
 
-    @JmsListener(destination="login.queue")
+    //@JmsListener(destination="login.queue")
     //注解@SendTo("out.queue")，该注解的意思是将return回的值，再发送到"out.queue"队列中
     //@SendTo("out.queue")
-    public void consumerMessage(String text){
+    /*public void consumerMessage(String text){
         System.out.println("login.queue队列收到的回复报文为:"+text);
-    }
+    }*/
 }

@@ -3,13 +3,15 @@ package com.pyg.pojo.result;
 import com.pyg.pojo.enumType.ResultEnum;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @description:
  * @author: HP
  * @date: 2019-05-30 20:13
  */
 @Data
-public class ReturnInfo {
+public class ReturnInfo implements Serializable {
 
     //自定义返回码
     private Integer code;
