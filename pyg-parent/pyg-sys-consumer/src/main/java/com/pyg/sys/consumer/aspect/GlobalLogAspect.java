@@ -2,6 +2,7 @@ package com.pyg.sys.consumer.aspect;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.pyg.common.utils.UUIDFactory;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -55,6 +56,8 @@ public class GlobalLogAspect {
 		HttpServletRequest request = attributes.getRequest();
 		// 定义方法返回值
 		Object returnResult = null;
+		String url = request.getRequestURL().toString();
+
 		try {
 			// 获取方法的返回值
 			returnResult = pjp.proceed();
@@ -62,7 +65,7 @@ public class GlobalLogAspect {
 
 		} finally {
 			JSONObject json = new JSONObject();
-			json.put("log_uuid", "12134");
+			json.put("logUuid", UUIDFactory.getUUIDStr());
 			jmsTemplate.convertAndSend("log.info", json.toJSONString());
 
             return returnResult;
