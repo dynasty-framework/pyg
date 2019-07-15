@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 @Component
 public class MQConsumerServer {
 
+
+
     @JmsListener(destination="login.queue")
     //注解@SendTo("out.queue")，该注解的意思是将return回的值，再发送到"out.queue"队列中
     //@SendTo("out.queue")
